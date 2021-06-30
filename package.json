@@ -1,0 +1,79 @@
+{
+  "name": "navenio-test",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@babel/helper-define-map": "^7.13.12",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-router-dom": "^5.1.6",
+    "axios": "^0.21.0",
+    "chai": "^4.2.0",
+    "concurrently": "^5.3.0",
+    "cssnano": "^4.1.7",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.3",
+    "postcss": "^7.0.5",
+    "postcss-cli": "^8.1.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "typescript": "^3.9.5",
+    "yarn": "^1.22.10"
+  },
+  "scripts": {
+    "watch": "node-sass ./src/scss/main.scss ./public/css/style.css -w --source-map true",
+    "watch:min": "node-sass ./src/scss/main.scss ./public/css/style.min.css -w --output-style compressed",
+    "prefx": "postcss --use autoprefixer -b \"last 10 versions\" ./public/css/style.css -o ./public/css/style.css --no-map",
+    "prefx:min": "postcss --use autoprefixer -b \"last 10 versions\" ./public/css/style.min.css -o ./public/css/style.min.css --no-map",
+    "build:compile": "node-sass ./src/scss/main.scss ./public/css/style.css --source-map true && node-sass ./src/scss/main.scss ./public/css/style.min.css --output-style compressed",
+    "build:autoprefix": "npm run prefx && npm run prefx:min",
+    "build-css": "run-s build:**",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "cross-env CI=true react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"yarn build-css\" \"yarn start\" \"yarn watch\"",
+    "production": "npm run build-css && npm run build",
+    "lint": "eslint src --ext ts --ext tsx --fix"
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "rules": {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "vars": "all",
+          "args": "after-used",
+          "ignoreRestSiblings": false
+        }
+      ],
+      "array-callback-return": "error"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/filesystem": "^0.0.29",
+    "@types/sortablejs": "^1.10.6",
+    "@types/wicg-file-system-access": "^2020.9.1",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0"
+  }
+}

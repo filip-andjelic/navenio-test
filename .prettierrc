@@ -1,0 +1,7 @@
+{
+  "tabWidth": 4,
+  "proseWrap": "never",
+  "endOfLine": "lf",
+  "trailingComma": "es5",
+  "printWidth": 120
+}
