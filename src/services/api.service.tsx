@@ -1,6 +1,7 @@
 import axios from "axios";
+import { CharacterResponse } from "./api.interfaces";
 
-const serverURL = 'https://swapi.dev/api/people';
+const serverURL = "https://swapi.dev/api/people";
 const UNAUTHORIZED = 401;
 
 axios.interceptors.response.use(
@@ -18,12 +19,14 @@ axios.interceptors.response.use(
 );
 
 const ApiService = {
-    people: (name: string): Promise<object> => {
+    getCharacters: (name: string): Promise<CharacterResponse> => {
         return axios({
             url: `${serverURL}?search=${name}`,
-            method: "GET"
+            method: "GET",
         })
             .then((res) => res.data)
-            .catch((e) => console.log('Search failed - ', e));
+            .catch((e) => console.log("Search failed - ", e));
     },
 };
+
+export default ApiService;

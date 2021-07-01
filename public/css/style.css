@@ -1,0 +1,43 @@
+body {
+  background-color: mintcream;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+  body * {
+    box-sizing: border-box; }
+
+.app main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+  max-width: 650px;
+  min-width: 320px; }
+  .app main .characters-list .character-details {
+    margin-bottom: 35px; }
+
+@media screen and (max-width: 960px) {
+  .app main {
+    width: 65%; } }
+
+@media screen and (max-width: 798px) {
+  .app main {
+    width: 75%; } }
+
+@media screen and (max-width: 576px) {
+  html {
+    font-size: 13px; }
+  .app main {
+    width: 85%; } }
+
+@media screen and (max-width: 480px) {
+  .app .app-header {
+    margin-bottom: 50px;
+    font-size: 2rem; }
+  .app main {
+    width: 95%;
+    padding: 0 5px; }
+    .app main .search-component {
+      padding: 8px 10px; } }
+
+/*# sourceMappingURL=style.css.map */
